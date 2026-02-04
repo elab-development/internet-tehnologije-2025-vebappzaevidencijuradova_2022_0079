@@ -7,7 +7,6 @@ export async function POST(request: NextRequest) {
         const body = await request.json();
         const { action } = body;
 
-        // LOGIN
         if (action === 'login') {
             const { email, password } = body;
 
@@ -47,7 +46,6 @@ export async function POST(request: NextRequest) {
             return response;
         }
 
-        // REGISTER
         if (action === 'register') {
             const { email, password, firstName, lastName, role } = body;
 
@@ -74,7 +72,6 @@ export async function POST(request: NextRequest) {
             return NextResponse.json({ success: true });
         }
 
-        // LOGOUT
         if (action === 'logout') {
             const sessionId = request.cookies.get('session')?.value;
             if (sessionId) {
@@ -93,7 +90,6 @@ export async function POST(request: NextRequest) {
     }
 }
 
-// GET current user
 export async function GET(request: NextRequest) {
     try {
         const sessionId = request.cookies.get('session')?.value;
