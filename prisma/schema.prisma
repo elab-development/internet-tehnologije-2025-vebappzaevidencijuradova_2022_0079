@@ -21,6 +21,7 @@ model User {
   updatedAt DateTime @updatedAt @map("updated_at")
 
   sessions Session[]
+  courses  Course[]
 
   @@map("users")
 }
@@ -42,4 +43,35 @@ enum Role {
   STUDENT
   TEACHER
   ADMIN
+}
+
+
+model Course {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?  @db.Text
+  accessCode  String   @unique @map("access_code") @db.VarChar(20)
+  teacherId   Int      @map("teacher_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  teacher     User         @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  enrollments Enrollment[]
+
+  @@index([teacherId])
+  @@map("courses")
+}
+
+model Enrollment {
+  id         Int      @id @default(autoincrement())
+  studentId  Int      @map("student_id")
+  courseId   Int      @map("course_id")
+  enrolledAt DateTime @default(now()) @map("enrolled_at")
+
+  course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, courseId])
+  @@index([studentId])
+  @@index([courseId])
+  @@map("enrollments")
 }
