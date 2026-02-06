@@ -1,5 +1,4 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// This is your Prisma schema file
 
 generator client {
   provider = "prisma-client-js"
@@ -38,14 +37,11 @@ model Session {
   @@index([expiresAt])
   @@map("sessions")
 }
-
 enum Role {
   STUDENT
   TEACHER
   ADMIN
 }
-
-
 model Course {
   id          Int      @id @default(autoincrement())
   name        String
@@ -76,6 +72,7 @@ model Enrollment {
   @@index([courseId])
   @@map("enrollments")
 }
+
 model Assignment {
   id          Int      @id @default(autoincrement())
   courseId    Int      @map("course_id")
@@ -110,3 +107,5 @@ model Submission {
   @@index([studentId])
   @@map("submissions")
 }
+
+
