@@ -54,12 +54,12 @@ export function TextArea({ label, className = '', ...props }: TextAreaProps) {
   return (
     <div className="w-full">
       {label && (
-        <label className="block text-sm font-medium mb-1">
+        <label className="block text-sm text-black font-medium mb-1">
           {label}
         </label>
       )}
       <textarea
-        className={`w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 ${className}`}
+        className={`w-full px-3 py-2 text-black border rounded focus:outline-none focus:ring-2 focus:ring-blue-500 ${className}`}
         {...props}
       />
     </div>

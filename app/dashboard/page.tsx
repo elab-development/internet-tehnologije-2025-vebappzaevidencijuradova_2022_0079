@@ -105,7 +105,7 @@ export default function DashboardPage() {
                 <div className="bg-white rounded-lg shadow p-6 mb-6">
                     <div className="flex items-center justify-between">
                         <div>
-                            <h1 className="text-2xl font-bold">
+                            <h1 className="text-2xl text-black font-bold">
                                 Welcome, {user?.firstName}!
                             </h1>
                             <p className="text-gray-600">

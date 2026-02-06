@@ -20,12 +20,12 @@ export function CourseCard({
       className="bg-white rounded-lg shadow p-6 hover:shadow-lg transition-shadow cursor-pointer"
       onClick={onClick}
     >
-      <h3 className="text-xl font-bold mb-2">{name}</h3>
+      <h3 className="text-xl font-bold mb-2 text-black">{name}</h3>
       <p className="text-gray-600 text-sm mb-4 line-clamp-2">
         {description || 'No description'}
       </p>
       <div className="flex items-center justify-between text-sm pt-4 border-t">
-        <span className="text-gray-500">{teacherName}</span>
+        <span className="text-gray-500">Nastavnik: {teacherName}</span>
         {accessCode && (
           <span className="font-mono text-blue-600 font-medium">{accessCode}</span>
         )}
