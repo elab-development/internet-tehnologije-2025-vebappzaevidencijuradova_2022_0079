@@ -19,7 +19,7 @@ interface User {
 interface Course {
     id: number;
     name: string;
-    description: string | null;
+    description: string;
     access_code: string;
     teacher_name: string;
     student_count?: number;
@@ -150,6 +150,7 @@ export default function DashboardPage() {
                             <CourseCard
                                 key={course.id}
                                 name={course.name}
+                                description={course.description}
                                 teacherName={course.teacher_name}
                                 accessCode={user?.role === 'TEACHER' ? course.access_code : undefined}
                                 studentCount={user?.role === 'TEACHER' ? course.student_count : undefined}
