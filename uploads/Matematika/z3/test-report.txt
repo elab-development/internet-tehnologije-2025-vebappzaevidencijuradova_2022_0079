@@ -1,0 +1,70 @@
+=================================================================
+                 PLAGIARISM ANALYSIS REPORT
+=================================================================
+
+Provider: RapidAPI
+Generated: 23. 2. 2026. 15:19:06
+Word Count: 328 words
+Overall Similarity Score: 21.00%
+
+Severity Level: Medium
+
+-----------------------------------------------------------------
+SUMMARY
+-----------------------------------------------------------------
+The document was analyzed using RapidAPI.
+The system compared the submitted text against millions of 
+documents in the database.
+
+Similarity Score Breakdown:
+- 0-10%:   Acceptable (likely original work)
+- 10-25%:  Warning (requires review)
+- 25-100%: High risk (likely plagiarized)
+
+Current Score: 21.00% - Medium Risk
+
+-----------------------------------------------------------------
+MATCHING SOURCES
+-----------------------------------------------------------------
+
+1. Athens : Identification of the metropolitan area - EMTA
+   URL: https://www.emta.com/network/athens/identification-of-the-metropolitan-area/
+
+
+2. Greece - The Cradle of Western Civilization - YouTube
+   URL: https://www.youtube.com/watch?v=HpqPl9PqxJo
+
+
+3. Athens is the capital and largest city of Greece. A major ... - Facebook
+   URL: https://www.facebook.com/earth.historyy/posts/athens-is-the-capital-and-largest-city-of-greece-a-major-coastal-urban-area-in-t/623056324022322/
+
+
+4. What is one of the most famous Greece cities to get destroyed?
+   URL: https://www.quora.com/What-is-one-of-the-most-famous-Greece-cities-to-get-destroyed
+
+
+-----------------------------------------------------------------
+RECOMMENDATION
+-----------------------------------------------------------------
+Some similarities detected. Manual review recommended.
+
+
+ACTION REQUIRED:
+- Review highlighted sections manually
+- Check citations and references
+- Verify student's original work
+- Consider discussion with student
+
+
+-----------------------------------------------------------------
+DISCLAIMER
+-----------------------------------------------------------------
+This is an automated analysis. Human review is recommended
+for final determination. The score is calculated based on
+text similarity and may include properly cited sources.
+
+
+
+=================================================================
+                    END OF REPORT
+=================================================================

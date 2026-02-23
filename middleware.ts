@@ -17,7 +17,16 @@ export function middleware(request: NextRequest) {
     response.headers.set('Access-Control-Allow-Origin', '*');
     response.headers.set('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     response.headers.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-
+    response.headers.set(
+        'Content-Security-Policy',
+        "default-src 'self'; " +
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.gstatic.com https://www.google.com https://apis.google.com; " +
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://www.gstatic.com; " +
+        "connect-src 'self' https://*.rapidapi.com https://www.gstatic.com https://www.google.com; " +
+        "img-src 'self' data: https://www.gstatic.com https://www.google.com; " +
+        "font-src 'self' https://fonts.gstatic.com; " +
+        "frame-src 'self' https://www.google.com;"
+    );
     // 3. DODATNA ZAŠTITA (Protiv clickjacking-a)
     response.headers.set('X-Frame-Options', 'DENY');
     response.headers.set('X-Content-Type-Options', 'nosniff');
