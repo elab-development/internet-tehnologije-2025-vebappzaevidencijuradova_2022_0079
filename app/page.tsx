@@ -41,7 +41,11 @@ export default function Home() {
             }
 
             if (isLogin) {
-                router.push('/dashboard');
+                if (data.user?.role === 'ADMIN') {
+                    router.push('/admin/dashboard');
+                } else {
+                    router.push('/dashboard');
+                }
             } else {
                 setIsLogin(true);
                 setError('Registration successful! Please login.');
@@ -54,7 +58,7 @@ export default function Home() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center p-4">
+        <div className="min-h-screen flex items-center justify-center p-4 bg-gray-50">
             <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-md">
                 <h1 className="text-3xl font-bold text-center mb-6 text-black">
                     {isLogin ? 'Login' : 'Register'}

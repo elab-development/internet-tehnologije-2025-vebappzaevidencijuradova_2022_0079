@@ -99,7 +99,7 @@ export default function DashboardPage() {
     }
 
     return (
-        <div className="min-h-screen p-6">
+        <div className="min-h-screen p-6 bg-gray-50">
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
                 <div className="bg-white rounded-lg shadow p-6 mb-6">
@@ -134,7 +134,7 @@ export default function DashboardPage() {
                     />
                 </div>
 
-                <div className="flex items-center justify-between mb-6">
+                <div className="flex items-center justify-between mb-6 text-black">
                     <h2 className="text-2xl font-bold">
                         {user?.role === 'TEACHER' ? 'My Courses' : 'Enrolled Courses'}
                     </h2>

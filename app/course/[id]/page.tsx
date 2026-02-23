@@ -252,7 +252,7 @@ export default function CoursePage() {
     }
 
     return (
-        <div className="min-h-screen p-6">
+        <div className="min-h-screen p-6 bg-gray-50">
             <div className="max-w-6xl mx-auto">
                 {/* Back button */}
                 <Button
@@ -265,7 +265,7 @@ export default function CoursePage() {
 
                 {/* Header */}
                 <div className="flex items-center justify-between mb-6">
-                    <h1 className="text-3xl font-bold">Assignments</h1>
+                    <h1 className="text-3xl font-bold text-black">Assignments</h1>
                     {user?.role === 'TEACHER' && (
                         <Button onClick={() => setShowCreateModal(true)}>
                             Create Assignment
@@ -378,10 +378,10 @@ export default function CoursePage() {
                         </label>
                         <input
                             type="file"
-                            accept=".txt,.doc,.docx,.xls,.xlsx,.pdf,.ppt,.pptx"
+                            accept=".txt,.doc,.docx,.xls,.xlsx,.ppt,.pptx"
                             required
                             onChange={(e) => setSelectedFile(e.target.files?.[0] || null)}
-                            className="w-full px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+                            className="w-full text-black px-3 py-2 border rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
                         />
                         {selectedFile && (
                             <p className="text-sm text-gray-600 mt-2">
@@ -389,7 +389,7 @@ export default function CoursePage() {
                             </p>
                         )}
                         <p className="text-xs text-gray-500 mt-2">
-                            Podržani formati: Word (.doc, .docx), Excel (.xls, .xlsx), PDF (.pdf), PowerPoint (.ppt, .pptx), Text (.txt)
+                            Podržani formati: Word (.doc, .docx), Excel (.xls, .xlsx), PowerPoint (.ppt, .pptx), Text (.txt)
                         </p>
                     </div>
                     <div className="bg-yellow-50 border border-yellow-200 rounded p-3">

@@ -1,0 +1,71 @@
+=================================================================
+                 PLAGIARISM ANALYSIS REPORT
+=================================================================
+
+Provider: Mock Checker (DEMO MODE)
+Generated: 23. 2. 2026. 12:05:13
+Word Count: 1550 words
+Overall Similarity Score: 30.65%
+
+Severity Level: High
+
+-----------------------------------------------------------------
+SUMMARY
+-----------------------------------------------------------------
+The document was analyzed using Mock Checker.
+The system compared the submitted text against millions of 
+documents in our demo database.
+
+Similarity Score Breakdown:
+- 0-10%:   Acceptable (likely original work)
+- 10-25%:  Warning (requires review)
+- 25-100%: High risk (likely plagiarized)
+
+Current Score: 30.65% - High Risk
+
+-----------------------------------------------------------------
+MATCHING SOURCES
+-----------------------------------------------------------------
+
+1. Academic Article Example
+   URL: https://example.edu/article
+
+
+2. Wikipedia Article
+   URL: https://wikipedia.org/example
+
+
+3. Blog Post
+   URL: https://blog.example.com/post
+
+
+-----------------------------------------------------------------
+RECOMMENDATION
+-----------------------------------------------------------------
+HIGH PLAGIARISM DETECTED! This document requires immediate review.
+
+
+ACTION REQUIRED:
+- Review highlighted sections manually
+- Check citations and references
+- Verify student's original work
+- Consider discussion with student
+
+
+-----------------------------------------------------------------
+DISCLAIMER
+-----------------------------------------------------------------
+This is an automated analysis. Human review is recommended
+for final determination. The score is calculated based on
+text similarity and may include properly cited sources.
+
+
+⚠️  DEMO MODE ACTIVE
+This report was generated using a mock plagiarism checker.
+To enable real plagiarism detection, configure your API keys
+in the .env file.
+
+
+=================================================================
+                    END OF REPORT
+=================================================================
