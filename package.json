@@ -13,10 +13,13 @@
     "bcryptjs": "^3.0.3",
     "mammoth": "^1.11.0",
     "next": "16.1.6",
+    "next-swagger-doc": "^0.4.1",
     "officeparser": "^6.0.4",
     "pdf-parse": "^2.4.5",
     "react": "19.2.3",
     "react-dom": "19.2.3",
+    "swagger-jsdoc": "^1.10.3",
+    "swagger-ui-react": "^5.31.2",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
@@ -24,8 +27,10 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "16.1.6",
+    "@types/swagger-jsdoc": "^6.0.4",
+    "@types/swagger-ui-react": "^5.18.0",
+    "eslint": "^10.0.1",
+    "eslint-config-next": "^0.2.4",
     "prisma": "^5.8.0",
     "tailwindcss": "^4",
     "typescript": "^5"
