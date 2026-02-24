@@ -93,11 +93,11 @@ export function AssignmentCard({
           <div className="flex items-center justify-between">
             <span className="text-sm text-gray-600">Plagiarism Score:</span>
             <span className={`text-sm font-medium ${
-              submission.plagiarismScore! < 10 ? 'text-green-600' :
-              submission.plagiarismScore! < 25 ? 'text-yellow-600' :
+              submission?.plagiarismScore! < 10 ? 'text-green-600' :
+              submission?.plagiarismScore! < 25 ? 'text-yellow-600' :
               'text-red-600'
             }`}>
-              {submission.plagiarismScore.toFixed(1)}%
+              {submission?.plagiarismScore.toFixed(1)}%
             </span>
           </div>
         </div>
