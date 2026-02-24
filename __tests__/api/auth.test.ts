@@ -42,7 +42,7 @@ describe('Auth API - Integracioni Testovi', () => {
             const response = await authRoute.POST(req);
             const data = await response.json();
 
-            // Ako je i dalje 500, ispisaće nam grešku u konzoli testa
+
             if (response.status === 500) console.log('SERVER ERROR 500:', data);
 
             expect(response.status).toBe(401);
@@ -50,10 +50,10 @@ describe('Auth API - Integracioni Testovi', () => {
         });
 
         test('Vraća 401 ako je lozinka pogrešna', async () => {
-            const req = createRequest({ action: 'login', email: 'test@t.com', password: 'wrong' });
+            const req = createRequest({ action: 'login', email: 't@t.com', password: 'wrong' });
 
             (prisma.user.findUnique as jest.Mock).mockResolvedValue({
-                id: 1, email: 'test@t.com', password: 'hashed'
+                id: 1, email: 't@t.com', password: 'hashed'
             });
             (authLib.verifyPassword as jest.Mock).mockResolvedValue(false);
 

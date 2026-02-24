@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Veb aplikacija za evidenciju studentskih radova 🎓
 
-## Getting Started
+Ovaj projekat je razvijen kao rešenje za evidenciju radova, sa integrisanom proverom plagijata i vizuelnom statistikom. Sistem je u potpunosti dockerizovan radi lakšeg pokretanja i razvoja.
 
-First, run the development server:
+## 🚀 Tehnologije
+* **Framework:** Next.js (App Router)
+* **Baza podataka:** MySQL 8.0
+* **ORM:** Prisma
+* **Kontejnerizacija:** Docker & Docker Compose
+* **Eksterni API:** RapidAPI (Plagiarism Checker), Google Charts
 
+---
+
+## 🛠️ Instalacija i pokretanje (Docker)
+
+Sledeći koraci će podići celokupno okruženje (web aplikaciju i bazu podataka).
+
+### 1. Pokretanje servisa
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+docker-compose up -d --build
+```
+### 2. Inicijalizacija baze
+# Kreiranje tabela
+```bash
+docker-compose exec web npx prisma db push
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Dockerizacija (Tehnički detalji)
+Aplikacija koristi dva osnovna servisa definisana kroz docker-compose.yml:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+web (Next.js): Baziran na node:18-alpine. Dockerfile izvršava npx prisma generate, gradi aplikaciju (npm run build) i pokreće server na portu 3000.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+db (MySQL): Koristi zvaničnu mysql:8.0 sliku. Podaci su perzistentni zahvaljujući Docker volume-u (mysql_data), što sprečava gubitak podataka nakon restarta kontejnera.
 
-## Learn More
+# Eksterni API servisi
+Aplikacija se integriše sa dva eksterna servisa putem REST protokola:
 
-To learn more about Next.js, take a look at the following resources:
+1. RapidAPI - Plagiarism Checker
+Svrha: Automatska provera originalnosti predatih dokumenata.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Komunikacija: Šalje tekstualni sadržaj rada na POST endpoint i dobija procenat sličnosti u JSON formatu.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Google Charts API
+Svrha: Generisanje interaktivnih grafikona na dashboard-u nastavnika.
 
-## Deploy on Vercel
+Komunikacija: Koristi klijentsku integraciju za renderovanje statistike predaja i ocena u realnom vremenu.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Evo teksta koji možeš direktno da prekopiraš u svoj README.md (ili u Word dokumentaciju), formatiranog tako da jasno opisuje tvoju Git strategiju grananja.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# Git strategija i upravljanje granama
+U projektu je korišćen standardni Git Flow model grananja kako bi se osigurala stabilnost koda i omogućio paralelan rad na različitim funkcionalnostima.
+
+Pregled korišćenih grana:
+main: Predstavlja stabilnu verziju projekta koja je uvek spremna za produkciju. Ovde se nalazi proveren i testiran kod koji je prošao sve faze razvoja.
+
+develop: Glavna integraciona grana. Služi za spajanje svih gotovih funkcionalnosti (features) pre nego što se one prebace u main granu. Svi razvojni procesi se primarno dešavaju ovde.
+
+feature/login: Namenska grana korišćena za razvoj sistema autentifikacije. Na ovoj grani je implementirana logika za registraciju korisnika, JWT sesije, hashing lozinki i zaštitu ruta.
+
+feature/dashboard: Dodatna funkcionalna grana fokusirana na razvoj kontrolne table za profesore i studente. 
+
+Proces rada (Workflow):
+Svaka nova funkcionalnost započeta je kreiranjem nove feature/ grane iz develop grane. Po završetku rada, grana je spajana (merge) nazad u develop radi integracionog testiranja, dok je main ažuriran isključivo iz develop grane kada su sve funkcionalnosti potvrđene kao stabilne.
