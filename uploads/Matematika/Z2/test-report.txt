@@ -1,0 +1,59 @@
+=================================================================
+                 PLAGIARISM ANALYSIS REPORT
+=================================================================
+
+Provider: RapidAPI
+Generated: 23. 2. 2026. 12:15:22
+Word Count: 328 words
+Overall Similarity Score: 7.00%
+
+Severity Level: Low
+
+-----------------------------------------------------------------
+SUMMARY
+-----------------------------------------------------------------
+The document was analyzed using RapidAPI.
+The system compared the submitted text against millions of 
+documents in the database.
+
+Similarity Score Breakdown:
+- 0-10%:   Acceptable (likely original work)
+- 10-25%:  Warning (requires review)
+- 25-100%: High risk (likely plagiarized)
+
+Current Score: 7.00% - Low Risk
+
+-----------------------------------------------------------------
+MATCHING SOURCES
+-----------------------------------------------------------------
+
+1. Greece - The Cradle of Western Civilization - YouTube
+   URL: https://www.youtube.com/watch?v=HpqPl9PqxJo
+
+
+2. Athens is the capital of Greece. It was also at the heart of Ancient ...
+   URL: https://www.facebook.com/hellenicworld1/posts/athens-greece-athens-is-the-capital-of-greece-it-was-also-at-the-heart-of-ancien/852984526948932/
+
+
+-----------------------------------------------------------------
+RECOMMENDATION
+-----------------------------------------------------------------
+The document appears to be original.
+
+
+This submission has passed the plagiarism check.
+No further action required.
+
+
+-----------------------------------------------------------------
+DISCLAIMER
+-----------------------------------------------------------------
+This is an automated analysis. Human review is recommended
+for final determination. The score is calculated based on
+text similarity and may include properly cited sources.
+
+
+
+=================================================================
+                    END OF REPORT
+=================================================================

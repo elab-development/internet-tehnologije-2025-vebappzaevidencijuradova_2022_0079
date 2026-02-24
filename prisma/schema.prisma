@@ -1,5 +1,4 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// This is your Prisma schema file
 
 generator client {
   provider = "prisma-client-js"
@@ -21,6 +20,7 @@ model User {
   updatedAt DateTime @updatedAt @map("updated_at")
 
   sessions Session[]
+  courses  Course[]
 
   @@map("users")
 }
@@ -37,9 +37,75 @@ model Session {
   @@index([expiresAt])
   @@map("sessions")
 }
-
 enum Role {
   STUDENT
   TEACHER
   ADMIN
 }
+model Course {
+  id          Int      @id @default(autoincrement())
+  name        String
+  description String?  @db.Text
+  accessCode  String   @unique @map("access_code") @db.VarChar(20)
+  teacherId   Int      @map("teacher_id")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  teacher     User         @relation(fields: [teacherId], references: [id], onDelete: Cascade)
+  enrollments Enrollment[]
+  assignments Assignment[]
+
+  @@index([teacherId])
+  @@map("courses")
+}
+
+model Enrollment {
+  id         Int      @id @default(autoincrement())
+  studentId  Int      @map("student_id")
+  courseId   Int      @map("course_id")
+  enrolledAt DateTime @default(now()) @map("enrolled_at")
+
+  course Course @relation(fields: [courseId], references: [id], onDelete: Cascade)
+
+  @@unique([studentId, courseId])
+  @@index([studentId])
+  @@index([courseId])
+  @@map("enrollments")
+}
+
+model Assignment {
+  id          Int      @id @default(autoincrement())
+  courseId    Int      @map("course_id")
+  title       String
+  description String?  @db.Text
+  dueDate     DateTime @map("due_date")
+  maxPoints   Int      @default(100) @map("max_points")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  course      Course       @relation(fields: [courseId], references: [id], onDelete: Cascade)
+  submissions Submission[]
+
+  @@index([courseId])
+  @@map("assignments")
+}
+
+model Submission {
+  id               Int       @id @default(autoincrement())
+  assignmentId     Int       @map("assignment_id")
+  studentId        Int       @map("student_id")
+  fileName         String    @map("file_name")
+  filePath         String    @map("file_path")
+  plagiarismReport String?   @db.Text @map("plagiarism_report")
+  plagiarismScore  Float?    @map("plagiarism_score")
+  grade            Int?
+  submittedAt      DateTime  @default(now()) @map("submitted_at")
+  gradedAt         DateTime? @map("graded_at")
+
+  assignment Assignment @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+
+  @@unique([assignmentId, studentId])
+  @@index([studentId])
+  @@map("submissions")
+}
+
+
